@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   res.send("Hello World");
@@ -37,8 +36,8 @@ app.use("/admin", restrictUnauthenticated, restrictUnauthorized, adminRouter); /
 app.use("/", staticRouter); // Server Static Files
 
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
+
+app.listen(3000);
 */
 
-app.listen(port, () => {
-  console.log(`Server is running on ${port}`);
-});
+module.exports = app;
