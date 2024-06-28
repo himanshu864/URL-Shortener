@@ -21,7 +21,7 @@ const handleUserLogin = asyncHandler(async (req, res) => {
 
   // Generate token and send cookie
   const token = setUser(user);
-  res.cookie("token", token);
+  res.cookie("token", token, { httpsOnly: true, sameSite: "strict" });
 
   return res.redirect("/");
 });

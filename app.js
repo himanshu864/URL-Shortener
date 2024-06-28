@@ -11,6 +11,7 @@ const adminRouter = require("./routers/admin.js");
 const cookieParser = require("cookie-parser");
 
 const uri = process.env.URI;
+const connectMongoDB = require("./config/connect.js");
 connectMongoDB(uri);
 
 const {
@@ -25,6 +26,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// app.use((req, res, next) => {
+//   if (req.headers["x-forwarded-proto"] !== "https") {
+//     return res.redirect(`https://${req.headers.host}${req.url}`);
+//   }
+//   next();
+// });
+
 app.get("/hello", (req, res) => {
   res.send("Hello World");
 });
@@ -37,4 +45,5 @@ app.use("/", staticRouter); // Server Static Files
 
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
 
+// app.listen(3000);
 module.exports = app;
