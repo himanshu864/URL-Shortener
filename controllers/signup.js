@@ -33,7 +33,11 @@ const handleUserSignup = asyncHandler(async (req, res) => {
 
   // Generate token and send cookie
   const token = setUser(newUser);
-  res.cookie("token", token, { httpsOnly: true, sameSite: "strict" });
+  res.cookie("token", token, {
+    httpsOnly: true,
+    sameSite: "strict",
+    maxAge: 3600000,
+  });
 
   return res.redirect("/");
 });

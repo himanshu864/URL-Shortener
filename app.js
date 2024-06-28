@@ -39,5 +39,5 @@ app.use("/", staticRouter); // Server Static Files
 
 app.use((err, req, res, next) => res.status(500).json({ error: err.message }));
 
-// app.listen(3000);
-module.exports = app;
+app.listen(3000);
+// module.exports = app;

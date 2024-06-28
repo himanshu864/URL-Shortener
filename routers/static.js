@@ -10,7 +10,7 @@ router.get(
   restrictUnauthenticated,
   asyncHandler(async (req, res) => {
     const data = await URL.find({ createdBy: req.user._id });
-    res.render("home", { name: req.user.name, data });
+    res.render("home", { name: req.user.name, data, role: req.user.role });
   })
 );
 

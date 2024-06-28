@@ -12,6 +12,7 @@ const handleGenNewShortURL = asyncHandler(async (req, res) => {
     return res.render("home", {
       name: req.user.name,
       data,
+      role: req.user.role,
       error: "Invalid URL",
     });
 

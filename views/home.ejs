@@ -9,9 +9,22 @@
   </head>
   <body>
     <header>
-      <h1>URL Shortener</h1>
-      <% if (locals.name ) { %>
-      <h2>Welcome, <%= name %></h2>
+      <a href="/"><h1>URL Shortener</h1></a>
+      <% if (locals.name) { %>
+      <div class="user-info">
+        <h2>
+          Welcome, <%= name %>
+          <form method="POST" action="/user/logout" class="logout-form">
+            <button type="submit" class="btn-logout">Logout</button>
+          </form>
+        </h2>
+        <% if (locals.role == 'ADMIN') { %>
+        <nav class="admin-nav">
+          <a href="/admin">Admin Control</a>
+          <a href="/admin/signup">Admin Portal</a>
+        </nav>
+        <% } %>
+      </div>
       <% } %>
     </header>
 

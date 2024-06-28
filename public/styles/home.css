@@ -1,6 +1,7 @@
 /* General Styles */
 body {
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
   background-color: #f4f4f9;
   margin: 0;
   padding: 0;
@@ -14,16 +15,53 @@ header {
   background-color: #4caf50;
   color: white;
   padding: 15px;
-  width: 100%;
+  width: 100vw;
   text-align: center;
+  position: relative;
 }
 
 header h1 {
   margin: 0;
 }
 
-header h2 {
-  margin: 10px 0 0;
+header .user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header .logout-form {
+  margin-top: 10px;
+}
+
+header .btn-logout {
+  background-color: #ff5e57;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header .btn-logout:hover {
+  background-color: #ff3b30;
+}
+
+header .admin-nav {
+  display: flex;
+  gap: 10px;
+}
+
+header .admin-nav a {
+  color: white;
+  text-decoration: none;
+  background-color: #007bff;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+header .admin-nav a:hover {
+  background-color: #0056b3;
 }
 
 main {
@@ -109,20 +147,6 @@ main {
 
 .url-table td a:hover {
   text-decoration: underline;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  width: 100%;
-}
-
-footer p {
-  margin-bottom: 10px;
-}
-
-footer .btn-primary {
-  display: inline-block;
 }
 
 .error-message {
