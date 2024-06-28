@@ -20,18 +20,12 @@ const {
 } = require("./middlewares/unauth.js");
 
 app.set("view engine", "ejs");
+app.set("views", __dirname + "/views");
 
 app.use(express.static(__dirname + "/public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-// app.use((req, res, next) => {
-//   if (req.headers["x-forwarded-proto"] !== "https") {
-//     return res.redirect(`https://${req.headers.host}${req.url}`);
-//   }
-//   next();
-// });
 
 app.get("/hello", (req, res) => {
   res.send("Hello World");
